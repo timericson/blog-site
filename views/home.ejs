@@ -4,4 +4,23 @@
 
 <p><%= startingContent %></p>
 
+
+
+<% posts.forEach(function(post){ %>
+
+<h1> <%= post.title %> </h1>
+
+<% if (post.content.length >= 100) { %>
+
+<% const trimmedPost = post.content.substring(0,100); %>
+<% let url = "/posts/"; %>
+<p> <%= trimmedPost + "..." %>
+<a href="/posts/<%= post.title %>">Read More</a>
+</p>
+
+<% } else { %>
+<p> <%= post.content %> </p>
+<% } %>
+<% }); %>
+
 <%- include("partials/footer") -%>
